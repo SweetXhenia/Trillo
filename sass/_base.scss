@@ -1,6 +1,5 @@
 /* svg=scalable vector graphics */
 
-
 /* do "kořene" mohu umístit variables které jsou vlastně parent */
 :root {
   --color-primary: #eb2f64;
@@ -16,8 +15,19 @@
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
 
-  --shadow-dark:0 2rem 6rem rgba(0, 0, 0, .3);
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  --box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+
+  --line: 1px solid var(--color-grey-light-2);
 }
+$bp-largest:75em;      //1200px
+$bp-large:68.75em;  //1100px
+$bp-mid:56.25em;
+$bp-small:37.5em;
+$bp-mini:31.25em;
+
+
+
 
 * {
   margin: 0; /* globální reset aby se začalo od nuly */
@@ -31,17 +41,25 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; /* 1rem = 10px 10/16=62,5%*/
+
+  @media only screen and (max-width: $bp-large){
+    font-size: 50%;
+  }
 }
 body {
   font-family: "Open Sans", sans-serif;
-  font-family: 400;
+  font-weight: 400;
   line-height: 1.6;
-  color: var(--color-grey-dark-2); /* ←←←← je potřeba napsat před proměnnou VAR */
-  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark)); /* ←←←← proměnné se zapisují i s pomlčkami před */
-  background-size: cover;/* ←←←← vyplní celý prostor ale opakovaně */
-  background-repeat: no-repeat;/* ←←←← nebude opakovat pozadí */
+  color: var(
+    --color-grey-dark-2
+  ); /* ←←←← je potřeba napsat před proměnnou VAR */
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  ); /* ←←←← proměnné se zapisují i s pomlčkami před */
+  background-size: cover; /* ←←←← vyplní celý prostor ale opakovaně */
+  background-repeat: no-repeat; /* ←←←← nebude opakovat pozadí */
 
-
-
-  min-height: 100vh;/* ←←←← PROZATÍM, aby to šlo vidět (časem se zvětší proto minimum výška)*/
+  min-height: 100vh; /* ←←←← PROZATÍM, aby to šlo vidět (časem se zvětší proto minimum výška)*/
 }
